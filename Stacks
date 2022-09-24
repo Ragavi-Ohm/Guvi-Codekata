@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+char stack[100][100];
+int top=-1;
+void push(char c[100],int size)
+{
+    if(top>=size-1)
+    {
+        
+    }
+    else
+    {
+        top++;
+        strcpy(stack[top],c);
+    }
+}
+/*void pop(int size)
+{
+    char c;
+    if(top==-1)
+    {
+        
+    }
+    else
+    {
+        c=stack[top];
+        printf("%c",c);
+        top--;
+    }
+}*/
+int main()
+{
+   
+    int i,j,n;
+    char str[100],t[100];
+    scanf("\n%[^\n]%*c",str);
+    n=strlen(str);
+    char res[100][100];
+    char *token = strtok(str, " ");
+    int k=0; 
+    while (token!=NULL)
+    {
+        strcpy(t,token);
+        strcpy(res[k],t);
+        k++;
+        token = strtok(NULL, " ");
+    }    
+        
+        
+        
+    
+    for(i=0;i<k;i++)
+    {
+        push(res[i],k);
+    }
+    for(j=k-1;j>=0;j--)
+    {
+        if(j!=0)
+        {
+            printf("%s ",stack[j]);
+        }
+        else
+        {
+            printf("%s",stack[j]);
+        }
+    }
+    
+}
+
+
+
+
+
