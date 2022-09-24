@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int sub(int a[100],int i,int k,int index)
+{
+    int b[100];
+    int x,y,c=0;
+    int max=0;
+    for(x=i;x<i+k;x++)
+    {
+        
+        b[c]=a[x];
+        //printf("%d ",b[c]);
+        if(b[c]>max)
+        {
+            max=b[c];
+        }
+        c++;
+    }
+    //printf("\n");
+    if(max>index)
+    {
+        return 1;
+    }
+    
+}
+int main()
+{
+    int i,j,n,k=0,x,x1;
+    char s1[100],s2[100],t[20],t1[10];
+    int a[100],count=0,a1[10];
+    scanf("%[^\n]%*c",s1);
+    scanf("\n%[^\n]%*c",s2);
+    char *token1 = strtok(s1," ");
+    int c1=0;
+    while (token1!=NULL)
+    {
+        strcpy(t1,token1);
+        x1=atoi(t1);
+        a1[c1]=x1;
+        c1++;                                                                    
+        token1 = strtok(NULL, " ");
+    }
+    n=a1[0];
+    k=a1[1];
+    char *token = strtok(s2," ");
+    int c=0;
+    while (token!=NULL)
+    {
+        strcpy(t,token);
+        x=atoi(t);
+        a[c]=x;
+        c++;                                                                    
+        token = strtok(NULL, " ");
+    }
+    for(int ind=1;ind<=(n-1);ind++)
+    {
+        i=0;
+        while((i+ind-1)<=(n-1))
+        {
+            if(sub(a,i,ind,k)==1)
+            {
+                count=count+1;
+            }
+            i++;
+        }
+    }
+    printf("%d",count);
+    
+    
+}
+
+
+
+
