@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
+int main()
+{
+    int i,j,n,m,num1,num2;
+    int count1=0,count2=0,x;
+    char str[100],t[20];
+    int a[100],k=0;
+    scanf("%[^\n]%*c",str);
+    char *token = strtok(str," ");
+    while (token!=NULL)
+    {
+        strcpy(t,token);
+        x=atoi(t);
+        a[k]=x;
+        k++;                                                                    
+        token = strtok(NULL, " ");
+    }
+    n=a[0];
+    m=a[1];
+    for(i=1;i<n-2;i++)
+    {
+        if(n%i==0)
+        {
+            num1=i;
+            count1=count1+1;
+        }
+    }
+    for(i=1;i<m-2;i++)
+    {
+        if(m%i==0)
+        {
+            num2=i;
+            count2=count2+1;
+        }
+    }
+    int flag=0;
+    if(count1==1 && count2==1)
+    {
+        if(num1==1 && num2==1)
+        {
+            printf("1");
+            flag=1;
+        }
+    }
+    if(flag==0)
+    {
+        printf("0");
+    }
+    printf("n is %d   %d",n,num1);
+    printf("m is %d   %d",m,num2);
+    
+}
+
