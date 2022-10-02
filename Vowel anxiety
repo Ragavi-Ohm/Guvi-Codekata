@@ -1,0 +1,46 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Main
+{
+   
+	public static void main(String[] args) {
+		
+		
+	   
+	    int i,j,n,m;
+		String str;
+		Scanner s=new Scanner(System.in);
+		n=s.nextInt();
+		for(i=0;i<n;i++)
+		{
+		   
+		    
+		    m=s.nextInt();
+		    str=s.next();
+		    StringBuilder s1=new StringBuilder(str);
+		    StringBuilder s2=new StringBuilder();
+		    for(j=0;j<m;j++)
+		    {
+		        System.out.println("\n s1 now is  "+s1);
+		       
+		        if((s1.charAt(j)=='a'||s1.charAt(j)=='e'||s1.charAt(j)=='i'||s1.charAt(j)=='o'||s1.charAt(j)=='u'))
+		        {
+		           
+		           for(int k=j-1;k>=0;k--)
+		           {
+		               char ch=s1.charAt(k);
+		               s1.setCharAt(j-1-k,ch);
+		           }
+		            
+		           char ch1=s1.charAt(j);
+		           s1.setCharAt(j,ch1);
+		        }
+
+		    }
+		    System.out.println(s1);
+		    
+		}
+	}
+}
+
